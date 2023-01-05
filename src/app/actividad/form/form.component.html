@@ -1,0 +1,25 @@
+<section class="container">
+  <p>Ingrese primer valor <input type="number" [(ngModel)]="num1"></p>
+  <p>Ingrese segundo valor <input type="number" [(ngModel)]="num2"></p>
+
+  <select [(ngModel)]="selectValue">
+    <option value="ninguno">Elija una opción</option>
+    <option value="sum">Sumar</option>
+    <option value="rest">Restar</option>
+    <option value="mult">Multiplicar</option>
+    <option value="divid">Dividir</option>
+  </select>
+
+  <section class="mt-3">
+    <p>Resultado:</p>
+
+    <span [ngSwitch]="selectValue">
+      <span [ngStyle]="{'color': 'red'}" *ngSwitchCase="'ninguno'">No se eligio ninguna operación</span>
+      <span [ngStyle]="{'color': 'blue'}" *ngSwitchCase="'sum'">{{num1 + num2}}</span>
+      <span [ngStyle]="{'color': 'purple'}" *ngSwitchCase="'rest'">{{num1 - num2}}</span>
+      <span [ngStyle]="{'color': 'yellow'}" *ngSwitchCase="'mul'">{{num1 * num2}}</span>
+      <span [ngStyle]="{'color': 'green'}" *ngSwitchCase="'divid'">{{num1 / num2}}</span>
+      <span *ngSwitchDefault>Nada</span>
+    </span>
+  </section>
+</section>
